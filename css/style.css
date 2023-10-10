@@ -1,0 +1,104 @@
+.calculator_container{
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	.calc-heading {
+		background-color: #00a8a3;
+		border-radius: 10px;
+		margin-top: 15px;
+	}
+	.calc-heading h3{
+		margin: 0 0 20px 0;
+		padding: 0;
+		font-size: 19px;
+		color: #fff;
+		padding: 10px 15px;
+
+	}
+	/* panel_one */
+	.panel_one{
+		display: grid;
+		grid-template-columns:  100px 100px 100px 1fr 1fr;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
+	.panel_one .form-group label{
+		font-size: 12px;
+		width: 100%;
+		text-align: center;
+	}
+	.panel_one .form-group input{
+		border-bottom: solid 1px #000 !important;
+		border: none;
+		box-shadow: none;
+		border-radius: 0;
+		text-align: center;
+	}
+
+	/*  */
+	.panel_two{
+		display: grid;
+		grid-template-columns:  repeat(4, 1fr);
+		gap: 15px;
+		margin-top: 40px;
+	}
+	.panel_two .form-group{
+		position: relative;
+	}
+	.panel_two .form-group label{
+		font-size: 12px;
+		width: 100%;
+		text-align: center;
+		color: #00a8a3;
+	}
+	.panel_two .form-group span{
+		font-size: 11px;
+		font-weight: bold;
+		position: absolute;
+    right: 15px;
+    margin-top: 35px;
+	}
+	.panel_two .form-group:nth-child(1) span,
+	.panel_two .form-group:nth-child(2) span,
+	.panel_two .form-group:nth-child(3) span,
+	.panel_two .form-group:nth-child(4) span{
+		margin-top: 47px;
+	}
+	.panel_two .form-group input{		
+		border: none;
+		box-shadow: none;
+		text-align: center;
+		background-color: #e2ede8;
+		padding-right: 33px;
+	}
+	.panel_two .form-group:nth-child(1) input,
+	.panel_two .form-group:nth-child(3) input{
+		padding-right: 60px !important;
+	}
+	.calc-btn{
+		background-color: #00a8a3;
+		color: #fff;
+	}
+
+	@media(max-width:767px){
+		.panel_one,
+		.panel_two{		
+		grid-template-columns:  1fr;
+		gap: 10px;		
+	}
+
+	.panel_two .form-group:nth-child(1) span,
+	.panel_two .form-group:nth-child(2) span,
+	.panel_two .form-group:nth-child(3) span,
+	.panel_two .form-group:nth-child(4) span{
+		margin-top: 35px;
+	}
+	}
+
+
+	  /* Style for datepicker cells on hover */
+  .datepicker td:hover {
+    background-color: #337fb7; /* Change the background color on hover */
+    cursor: pointer;  
+    color: #fff;         
+  }

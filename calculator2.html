@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Rapport de Cotisation au Programme iPRO Etoile</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+
+<style>
+	.calculator_container{
+		max-width: 900px;
+		margin: 0 auto;
+	}
+	.calc-heading {
+		background-color: #00a8a3;
+		border-radius: 10px;
+		margin-top: 15px;
+	}
+	.calc-heading h3{
+		margin: 0 0 20px 0;
+		padding: 0;
+		font-size: 19px;
+		color: #fff;
+		padding: 10px 15px;
+
+	}
+	/* panel_one */
+	.panel_one{
+		display: grid;
+		grid-template-columns:  100px 100px 100px 1fr 1fr;
+		gap: 15px;
+		margin-bottom: 20px;
+	}
+	.panel_one .form-group label{
+		font-size: 12px;
+		width: 100%;
+		text-align: center;
+	}
+	.panel_one .form-group input{
+		border-bottom: solid 1px #000 !important;
+		border: none;
+		box-shadow: none;
+		border-radius: 0;
+		text-align: center;
+	}
+
+	/*  */
+	.panel_two{
+		display: grid;
+		grid-template-columns:  repeat(4, 1fr);
+		gap: 15px;
+		margin-top: 40px;
+	}
+	.panel_two .form-group{
+		position: relative;
+	}
+	.panel_two .form-group label{
+		font-size: 12px;
+		width: 100%;
+		text-align: center;
+		color: #00a8a3;
+	}
+	.panel_two .form-group span{
+		font-size: 11px;
+		font-weight: bold;
+		position: absolute;
+    right: 15px;
+    margin-top: 35px;
+	}
+	.panel_two .form-group:nth-child(1) span,
+	.panel_two .form-group:nth-child(2) span,
+	.panel_two .form-group:nth-child(3) span,
+	.panel_two .form-group:nth-child(4) span{
+		margin-top: 47px;
+	}
+	.panel_two .form-group input{		
+		border: none;
+		box-shadow: none;
+		text-align: center;
+		background-color: #e2ede8;
+		padding-right: 33px;
+	}
+	.panel_two .form-group:nth-child(1) input,
+	.panel_two .form-group:nth-child(3) input{
+		padding-right: 60px !important;
+	}
+	.calc-btn{
+		background-color: #00a8a3;
+		color: #fff;
+	}
+
+	@media(max-width:767px){
+		.panel_one,
+		.panel_two{		
+		grid-template-columns:  1fr;
+		gap: 10px;		
+	}
+
+	.panel_two .form-group:nth-child(1) span,
+	.panel_two .form-group:nth-child(2) span,
+	.panel_two .form-group:nth-child(3) span,
+	.panel_two .form-group:nth-child(4) span{
+		margin-top: 35px;
+	}
+	}
+</style>
+</head>
+<body>
+	<section>
+
+		
+		<div class="calculator_container container">
+			<div class="calc-heading text-center">
+			  <h3>Rapport de Cotisation au Programme iPRO Etoile</h3> 
+			</div>
+
+
+				<div class="panel_one">
+					<div class="form-group">
+						<label for="datepicker">Date</label>
+						<input class="form-control"  type="text" name="date" id="datepicker">
+					</div>
+
+					<div class="form-group">
+						<label>Nom</label>
+						<input class="form-control"  type="text" name="date">
+					</div>
+
+					<div class="form-group">
+						<label>Age</label>
+						<input class="form-control"  type="text" name="date" id="age" value="55">	
+					</div>
+
+					<div class="form-group">
+						<label>Montant versement initial €<span class="hide">[Initial payment amount]</span></label>
+						<input class="form-control"  type="text" name="date" id="initialpaymentamount" value="6000">	
+					</div>
+
+					<div class="form-group">
+						<label>Montant de la mensualité €<span class="hide">[Monthly Payment]</span></label>
+						<input class="form-control"  type="text" name="date" id="monthlycontribution" value="120">	
+					</div>
+
+				</div>
+				<div class="form-group">
+					<button type="button" class="btn calc-btn" id="calculate">Lancer la simulation</button>
+				</div>
+
+				
+
+					<div class="panel_two">
+
+						<div class="form-group">
+							<label>Nombre d'années de cotisation au programme iPRO Etoile <span class="hide">[Yrs of Contribution ]</span>	</label>
+							<span>années</span>
+							<input class="form-control"  type="text" name="date" id="yrsofcontribution">	
+						</div>
+
+
+						<div class="form-group">
+							<label>Montant du capital versé par le client sur la période <span class="hide">[Amount of capital paid by the client over the period]</span>	</label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="totalcapitalpaid">
+						</div>
+
+						<div class="form-group">
+							<label>Nombre d'années soumises à  capitalisation	 <span class="hide">[No of Years]</span></label>
+							<span>années</span>
+							<input class="form-control"  type="text" name="date" id="yrssubjectofunding">
+						</div>
+
+
+						<div class="form-group">
+							<label>Frais de recouvrement des primes périodiques	 <span class="hide">[Periodic premium collection fees]</span></label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="premiumcollectionfes">
+						</div>						
+
+
+						<div class="form-group">
+							<label>Frais  annuels de gestion € <span class="hide">[Annual management fees]</span></label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="annualmanagementfees"> 
+						</div>
+
+
+						<div class="form-group">
+							<label>Intérêts bruts acquis € <span class="hide">[Gross interest earned]</span></label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="grossinterestsearned">
+						</div>
+
+						<div class="form-group">
+							<label>Intérêts nets acquis € <span class="hide">[Net interest earned]</span></label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="net_intersts_earned">
+						</div>
+
+						<div class="form-group">
+							<label>Capital de départ à la retraite € <span class="hide">[Retirement capital]</span></label>
+							<span>€</span>
+							<input class="form-control"  type="text" name="date" id="retirementcapital">
+						</div>
+
+						
+					</div>
+
+					
+
+				
+
+		</div>
+
+	</section>
+
+
+
+	<footer class="text-center text-lg-start bg-white text-muted ">
+	  <!-- Section: Social media -->
+		<!-- Copyright -->
+		  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);padding: 10px 5px;">
+		    © 2023 
+		    <a class="text-reset fw-bold" href="https://genko-patrimoine.fr">Webdesign 842 Concept</a>
+		  </div>
+  		<!-- Copyright -->
+  	</footer>
+
+
+
+		<script type="text/javascript">
+
+		$( document ).ready(function() {
+
+			/*Calcuator*/
+			$('#calculate').click(function(){
+
+				var downpayment         = parseFloat($('#initialpaymentamount').val());
+				var monthlycontribution = parseFloat($('#monthlycontribution').val());
+				var monthlycontaftertax = parseFloat(monthlycontribution) - parseFloat(monthlycontribution*1.5/100 ) ;
+
+				var monthlytax          = monthlycontribution - monthlycontaftertax
+
+				var yrs_of_contribution = parseInt( 65 - $('#age').val());
+				var no_of_premium       = yrs_of_contribution * 12 ;
+			
+				var totalcapitalpaid    = parseInt((no_of_premium * monthlycontribution)) + parseInt(downpayment);
+				var yrssubjectofunding  = parseInt(yrs_of_contribution -3 );
+
+				var capital             = (no_of_premium * monthlycontribution)+downpayment
+
+				var premiumcollectionfee= parseFloat(no_of_premium * monthlytax).toFixed(2);
+
+
+				$('#yrsofcontribution').val(yrs_of_contribution);
+				$('#totalcapitalpaid').val(capital);
+				$('#yrssubjectofunding').val(yrssubjectofunding);
+				$('#premiumcollectionfes').val(premiumcollectionfee);
+
+
+				console.log('Down Payment:'+downpayment);
+				console.log('Monthly Payment:'+monthlycontribution);
+				console.log('Monthly Payment After Tax:'+monthlycontaftertax);
+				console.log('Monthly Tax:'+monthlytax);
+				console.log('Contribution Yrs:'+yrs_of_contribution);
+				console.log('Total Months for Premium to be paid:'+no_of_premium);
+				console.log('Total Capitl to be paid:'+totalcapitalpaid);
+				console.log('Interests Applicable Year:'+yrssubjectofunding);
+				console.log('Capital Paid in Total:'+capital);
+				console.log('Premium Collection Fee:'+premiumcollectionfee);
+
+				
+				let coli         	= parseFloat(0.00);
+				let colj         	= parseFloat(0.00);
+				const percentage 	= parseFloat(0.00125);
+				let previousyrsrec= {};
+				var columng 			= [];
+				var columnh 			= [];
+				var columnj 			= [];
+
+
+				let accumulatedtotal    = parseFloat(downpayment + monthlycontribution*36 - monthlytax*36).toFixed(2) ; 
+
+				console.log(accumulatedtotal)
+
+				for (let i = 1; i <=  no_of_premium ; i++) {
+
+					if(i<=36){continue;}
+
+					if(i == 37){
+
+						let total         = parseFloat(accumulatedtotal) + parseFloat(monthlycontribution) - parseFloat(monthlytax); 
+						let interest      = parseFloat(total) * parseFloat(Math.pow(1 + (9 / 100), 1 / 12) - 1 ) ;
+						let annualmgmtfee = parseFloat(interest) * 0.125/100 ; 
+
+						// console.log("Accumulated after "+i+'month ='+total.toFixed(4))
+						// console.log("Interest after "+i+'month ='+interest.toFixed(4))
+						// console.log("Annual Fee "+i+'month for '+interest.toFixed(4)+' ='+annualmgmtfee.toFixed(4))
+						// console.log("_________________________________________");
+
+
+						previousyrsrec["capital"]  = total;
+						previousyrsrec["premium"]  = monthlycontribution;
+						previousyrsrec["interest"] = interest;
+						previousyrsrec["i"]        = interest;
+						previousyrsrec["premiumfee"]  = annualmgmtfee.toFixed(4);
+
+						columnh.push( parseFloat( interest.toFixed(4) ) ); 
+						columnj.push( parseFloat( annualmgmtfee.toFixed(4) ) ); 
+						// console.log(previousyrsrec);
+
+
+					}
+					else{
+
+						let total            = parseFloat(previousyrsrec["capital"]) + parseFloat(previousyrsrec["interest"])  + parseFloat(monthlycontribution)
+						 - parseFloat(monthlytax) - parseFloat(previousyrsrec["premiumfee"])  ; 
+
+
+						// console.log(total);
+
+						let interest         = parseFloat(total) *  parseFloat(Math.pow(1 + (9 / 100), 1 / 12) - 1)  ;
+
+						// console.log(interest);
+
+						// console.log("prevyear"+previousyrsrec["interest"])
+
+						let accumulatedintrst= parseFloat(previousyrsrec["i"]) + interest; 
+
+						// console.log(accumulatedintrst);
+
+						let annualmgmtfee    = parseFloat(accumulatedintrst.toFixed(4)) * 0.125/100 ; 
+
+						// console.log(annualmgmtfee);
+
+						// console.log(annualmgmtfee);
+						// console.log("Accumulated after "+i+'month ='+total.toFixed(4))
+						// console.log("Interest after "+i+'month  ='+interest.toFixed(4))
+						// console.log("Annual Fee "+i+'month for '+accumulatedintrst.toFixed(4) +' ='+annualmgmtfee.toFixed(4))
+						// console.log("_________________________________________");
+
+
+						 previousyrsrec["capital"]  = total;
+						 previousyrsrec["premium"]  = monthlycontribution;
+						 previousyrsrec["interest"] = interest;
+						 previousyrsrec["i"]        = accumulatedintrst;
+						 previousyrsrec["premiumfee"] = annualmgmtfee;
+						
+
+						columnh.push( parseFloat( interest.toFixed(4) ) ); 
+						columnj.push( parseFloat( annualmgmtfee.toFixed(4) ) ); 
+
+						// console.log(previousyrsrec);
+
+					}
+
+					
+
+				}
+
+
+				let sumofhs = columnh.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+				let sumofjs = columnj.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+
+				$('#grossinterestsearned').val(sumofhs.toFixed(4));
+				$('#annualmanagementfees').val(sumofjs.toFixed(4));
+
+
+				let interest_nets_acquis = parseFloat(sumofhs.toFixed(4)) - parseFloat(sumofjs.toFixed(4)) - parseFloat(premiumcollectionfee) ;
+
+				$('#net_intersts_earned').val(interest_nets_acquis);
+
+				let retirementcapital   = interest_nets_acquis + capital ; 
+
+				$('#retirementcapital').val(retirementcapital);
+				
+
+
+		});
+		/*Calcuator*/
+
+
+		/*DatePicker*/
+		$('#datepicker').datepicker({
+		    format: 'dd/mm/yyyy', // Specify the desired date format
+		    autoclose: true      // Close the date picker when a date is selected
+		 });
+		$('#datepicker').datepicker('setDate', new Date());
+		/*Datepicker*/
+
+		});
+</script>
+
+
+
+<style>
+  /* Style for datepicker cells on hover */
+  .datepicker td:hover {
+    background-color: #337fb7; /* Change the background color on hover */
+    cursor: pointer;  
+    color: #fff;         
+  }
+
+</style>
+
+	
+	
+	
+
+</body>
+</html>
